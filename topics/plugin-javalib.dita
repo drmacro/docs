@@ -7,7 +7,11 @@
   <shortdesc>You can use the <codeph>dita.conductor.lib.import</codeph> extension point to add an additional Java
     library to the DITA-OT <parmname>classpath</parmname> parameter.</shortdesc>
   <taskbody>
-    <steps>
+    <?oxy_comment_start author="Eliot Kimber" timestamp="20190217T172513+0000" comment="This topic is hidden under Plug-in Applications.
+Would like it to be more prominent as I would never have thought to look under that section this information.
+
+I think having at general topic of &quot;Managing Java extensions&quot; that is at the same level as Plugin Dependencies would be a better place for it."?>
+    <steps><?oxy_comment_end?>
       <step>
         <cmd>If necessary, compile the Java code into a JAR file.</cmd>
       </step>
@@ -15,11 +19,11 @@
         <cmd>Create a <filepath>plugin.xml</filepath> file that contains the following code:</cmd>
         <info><codeblock outputclass="normalize-space show-line-numbers show-whitespace">&lt;plugin id="<varname>plugin-id</varname>">
   &lt;feature extension="dita.conductor.lib.import" file="<varname>file</varname>"/>
-&lt;/plugin></codeblock>where:
-          <ul>
-            <li><varname>plugin-id</varname> is the plug-in identifier, for example, com.example.addjar.</li>
+&lt;/plugin></codeblock>where: <ul>
+            <li><varname>plugin-id</varname> is the plug-in identifier, for example,
+              com.example.addjar.</li>
             <li><varname>file</varname> is the name of the JAR file, for example,
-              <filepath>myJavaLibrary.jar</filepath>. </li>
+                <filepath>myJavaLibrary.jar</filepath>. </li>
           </ul></info>
       </step>
       <step>
@@ -28,8 +32,9 @@
     </steps>
     <result>The Ant or XSLT code now can make use of the Java code.</result>
     <example>
-      <p>In the following extended example, the <filepath>myJavaLibrary.jar</filepath> file performs a validation step
-        during processing, and you want it to run immediately before the <codeph>conref </codeph>step.</p>
+      <p>In the following extended example, the <filepath>myJavaLibrary.jar</filepath> file performs
+        a validation step during processing, and you want it to run immediately before the
+          <codeph>conref </codeph>step.</p>
       <p>To accomplish this, you will need to use several features:</p>
       <ul>
         <li>The JAR file must be added to the classpath.</li>
